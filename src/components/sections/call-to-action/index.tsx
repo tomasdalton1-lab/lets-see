@@ -68,17 +68,17 @@ export function CallToAction() {
 
   return (
     <motion.section 
-      className="w-full bg-gradient-to-br from-[#17293A] to-[#2A4A5C] text-white py-16 md:py-24 font-montserrat"
+      className="w-full bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20 md:py-32"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Heading */}
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             variants={headingVariants}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
@@ -87,7 +87,7 @@ export function CallToAction() {
           
           {/* Subheading */}
           <motion.p 
-            className="text-lg md:text-xl text-gray-200 font-normal mb-8 md:mb-12 max-w-3xl mx-auto"
+            className="text-lg md:text-xl lg:text-2xl text-slate-300 font-light leading-relaxed mb-12 md:mb-16 max-w-4xl mx-auto"
             variants={paragraphVariants}
             transition={{ duration: 1.0, ease: "easeOut" }}
           >

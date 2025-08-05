@@ -50,46 +50,61 @@ export function Problem() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.4
+        staggerChildren: 0.8,
+        delayChildren: 0.8
       }
     }
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { 
+      opacity: 0, 
+      y: 80,
+      scale: 0.9
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1
+    }
   }
 
   const glowBarVariants = {
-    initial: { scaleX: 0 },
-    hover: { scaleX: 1 }
+    initial: { scaleX: 0, opacity: 0 },
+    hover: { 
+      scaleX: 1, 
+      opacity: 1
+    },
+    visible: {
+      opacity: 0.3,
+      scaleX: 0.1
+    }
   }
 
   return (
     <motion.section 
       id="problem" 
-      className="w-full bg-gradient-to-b from-[#17293A] to-[#0d1a25] text-white py-16 md:py-24 font-montserrat elementor-section"
+      className="w-full bg-gradient-to-b from-slate-50 to-white text-slate-900 py-20 md:py-32"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 elementor-container">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         {/* Header Section */}
-        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-5xl mx-auto text-center mb-16 md:mb-20">
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 leading-tight tracking-tight"
             variants={headingVariants}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <span className="relative inline-block hover:text-blue-400 transition-colors duration-300">
+            <span className="relative inline-block text-slate-900 hover:text-slate-700 transition-colors duration-300">
               Escalas a gran velocidad.<br /> ¿Sobre qué base?
             </span>
           </motion.h2>
           
           <motion.p 
-            className="text-lg md:text-xl text-gray-300 font-normal"
+            className="text-lg md:text-xl lg:text-2xl text-slate-600 font-light leading-relaxed"
             variants={paragraphVariants}
             transition={{ duration: 1.0, ease: "easeOut" }}
           >
@@ -99,31 +114,52 @@ export function Problem() {
 
         {/* Cards Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"
           variants={cardsContainerVariants}
         >
           {painPoints.map((point, index) => (
             <motion.div 
               key={index} 
-              className="elementor-column unidades bg-gray-900 rounded-2xl p-6 md:p-8 flex flex-col h-full relative overflow-hidden"
+              className="bg-white rounded-2xl p-8 md:p-10 flex flex-col h-full relative overflow-hidden shadow-lg border border-slate-200 hover:shadow-xl"
               variants={cardVariants}
-              whileHover="hover"
-              initial="initial"
-              transition={{ duration: 1.0, ease: "easeOut" }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.02,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                transition: { duration: 0.4, ease: "easeOut" }
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 2.0,
+                ease: "easeOut",
+                opacity: { duration: 1.5, ease: "easeOut" },
+                y: { duration: 2.0, ease: "easeOut" },
+                scale: { duration: 1.8, delay: 0.4, ease: "easeOut" }
+              }}
             >
-              {/* Animated top border glow */}
+              {/* Animated top border accent */}
               <motion.div 
-                className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 to-blue-400 origin-left"
+                className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-slate-700 to-slate-600 origin-left"
                 variants={glowBarVariants}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                initial="initial"
+                whileHover="hover"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1.0,
+                  ease: "easeOut",
+                  delay: 2.5
+                }}
               />
               
               {/* Card content */}
               <div className="card-content h-full w-full flex flex-col relative z-10">
-                <h3 className="text-xl md:text-2xl font-semibold mb-4 text-blue-400">
+                <h3 className="text-xl md:text-2xl font-semibold mb-6 text-slate-800">
                   {point.title}
                 </h3>
-                <p className="text-gray-300 flex-grow font-normal">
+                <p className="text-slate-600 flex-grow font-normal leading-relaxed">
                   {point.text}
                 </p>
               </div>

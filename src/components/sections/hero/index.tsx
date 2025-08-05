@@ -43,11 +43,11 @@ export function Hero() {
   }
 
   return (
-    <section id="top" className="relative w-full min-h-screen bg-[#17293A] text-white flex items-center py-16 overflow-hidden font-montserrat">
+    <section id="top" className="relative w-full min-h-screen bg-slate-900 text-white flex items-center py-20 overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-30"
           autoPlay
           muted
           loop
@@ -55,14 +55,15 @@ export function Hero() {
           preload="auto"
           onError={(e) => console.error('Video failed to load:', e)}
         >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
           {/* Fallback background */}
         </video>
-        {/* Gradient overlay para mejorar legibilidad del texto */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#17293A]/80 via-[#17293A]/60 to-[#17293A]/80"></div>
+        {/* Professional dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/75 to-slate-900/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/40"></div>
       </div>
       
-      <div className="container mx-auto px-4 md:px-6 max-w-4xl relative z-10">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-6xl relative z-10">
         <motion.div 
           className="flex flex-col items-start text-left"
           initial="hidden"
@@ -79,7 +80,7 @@ export function Hero() {
           }}
         >
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight tracking-tight"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -88,7 +89,7 @@ export function Hero() {
           </motion.h1>
           
           <motion.div 
-            className="text-lg md:text-xl text-gray-400 mb-10 max-w-3xl"
+            className="text-lg md:text-xl lg:text-2xl text-slate-300 mb-12 max-w-4xl leading-relaxed font-light"
             variants={textVariants}
             transition={{
               duration: 1.2,
@@ -100,7 +101,7 @@ export function Hero() {
           </motion.div>
           
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-6"
             variants={{
               hidden: { opacity: 0 },
               visible: {

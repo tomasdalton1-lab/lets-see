@@ -95,17 +95,17 @@ export function OpinionLeadership() {
   return (
     <motion.section 
       id="opinion-leadership" 
-      className="w-full bg-[#17293A] text-white py-16 md:py-24 font-montserrat"
+      className="w-full bg-gradient-to-b from-slate-50 to-white text-slate-900 py-20 md:py-32"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-5xl mx-auto text-center mb-16 md:mb-20">
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 leading-tight tracking-tight text-slate-900"
             variants={headingVariants}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
@@ -113,7 +113,7 @@ export function OpinionLeadership() {
           </motion.h2>
           
           <motion.p 
-            className="text-lg md:text-xl text-gray-300 font-normal max-w-3xl mx-auto"
+            className="text-lg md:text-xl lg:text-2xl text-slate-600 font-light leading-relaxed max-w-4xl mx-auto"
             variants={paragraphVariants}
             transition={{ duration: 1.0, ease: "easeOut" }}
           >

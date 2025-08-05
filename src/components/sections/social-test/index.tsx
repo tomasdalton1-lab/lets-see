@@ -88,17 +88,17 @@ export function SocialTest() {
 
   return (
     <motion.section 
-      className="w-full bg-gray-50 text-gray-900 py-16 md:py-24 font-montserrat"
+      className="w-full bg-slate-900 text-white py-20 md:py-32"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
+        <div className="max-w-5xl mx-auto text-center mb-16 md:mb-20">
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-[#17293A]"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 leading-tight tracking-tight text-white"
             variants={headingVariants}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
@@ -106,7 +106,7 @@ export function SocialTest() {
           </motion.h2>
           
           <motion.p 
-            className="text-lg md:text-xl text-gray-600 font-normal max-w-3xl mx-auto"
+            className="text-lg md:text-xl lg:text-2xl text-slate-300 font-light leading-relaxed max-w-4xl mx-auto"
             variants={paragraphVariants}
             transition={{ duration: 1.0, ease: "easeOut" }}
           >
@@ -115,12 +115,12 @@ export function SocialTest() {
         </div>
 
         {/* Testimonial Container */}
-        <div className="max-w-4xl mx-auto mb-8">
+        <div className="max-w-5xl mx-auto mb-12">
           <div className="relative min-h-[300px] flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                className="bg-white rounded-2xl p-8 md:p-12 shadow-lg text-center w-full"
+                className="bg-slate-800 rounded-2xl p-8 md:p-12 shadow-xl text-center w-full border border-slate-700"
                 variants={testimonialVariants}
                 initial="hidden"
                 animate="visible"
